@@ -5,25 +5,27 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1552324906.95462
+_modified_time = 1552407172.501209
 _enable_loop = True
 _template_filename = '/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'utf-8'
 import django_mako_plus
 import django.utils.html
-_exports = ['content']
+_exports = ['title', 'content']
 
 
 def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        self = context.get('self', UNDEFINED)
+        def title():
+            return render_title(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('<!DOCTYPE html>\n<html>\n    <meta charset="UTF-8">\n    <head>\n\n        <meta charset="utf-8" />\n        <link rel="apple-touch-icon" sizes="76x76" href="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
@@ -42,7 +44,12 @@ def render_body(context,**pageargs):
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page == 'active' else '' ))
         __M_writer('">\n                  <a class="nav-link" href="/dashboard/active">\n                    <i class="material-icons">list</i>\n                    <p>Active Polls</p>\n                  </a>\n                </li>\n                <li class="nav-item ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page == 'completed' else '' ))
-        __M_writer('">\n                  <a class="nav-link" href="/dashboard/completed">\n                    <i class="material-icons">done</i>\n                    <p>Completed Polls</p>\n                  </a>\n                </li>\n                <li class="nav-item active-pro ">\n                  <a class="nav-link" href="./upgrade.html">\n                    <i class="material-icons">unarchive</i>\n                    <p>Upgrade to PRO</p>\n                  </a>\n                </li>\n              </ul>\n            </div>\n          </div>\n          <div class="main-panel">\n            <!-- Navbar -->\n            <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">\n              <div class="container-fluid">\n                <div class="navbar-wrapper">\n                  <a class="navbar-brand" href="#pablo">Dashboard</a>\n                </div>\n                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">\n                  <span class="sr-only">Toggle navigation</span>\n                  <span class="navbar-toggler-icon icon-bar"></span>\n                  <span class="navbar-toggler-icon icon-bar"></span>\n                  <span class="navbar-toggler-icon icon-bar"></span>\n                </button>\n                <div class="collapse navbar-collapse justify-content-end">\n                  <form class="navbar-form">\n                    <div class="input-group no-border">\n                      <input type="text" value="" class="form-control" placeholder="Search...">\n                      <button type="submit" class="btn btn-white btn-round btn-just-icon">\n                        <i class="material-icons">search</i>\n                        <div class="ripple-container"></div>\n                      </button>\n                    </div>\n                  </form>\n                  <ul class="navbar-nav">\n                    <li class="nav-item">\n                      <a class="nav-link" href="#pablo">\n                        <i class="material-icons">dashboard</i>\n                        <p class="d-lg-none d-md-block">\n                          Stats\n                        </p>\n                      </a>\n                    </li>\n                    <li class="nav-item dropdown">\n                      <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n                        <i class="material-icons">notifications</i>\n                        <span class="notification">5</span>\n                        <p class="d-lg-none d-md-block">\n                          Some Actions\n                        </p>\n                      </a>\n                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">\n                        <a class="dropdown-item" href="#">Mike John responded to your email</a>\n                        <a class="dropdown-item" href="#">You have 5 new tasks</a>\n                        <a class="dropdown-item" href="#">You\'re now friend with Andrew</a>\n                        <a class="dropdown-item" href="#">Another Notification</a>\n                        <a class="dropdown-item" href="#">Another One</a>\n                      </div>\n                    </li>\n                    <li class="nav-item dropdown">\n                      <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n                        <i class="material-icons">person</i>\n                        <p class="d-lg-none d-md-block">\n                          Account\n                        </p>\n                      </a>\n                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">\n                        <a class="dropdown-item" href="#">Profile</a>\n                        <a class="dropdown-item" href="#">Settings</a>\n                        <div class="dropdown-divider"></div>\n                        <a class="dropdown-item" href="#">Log out</a>\n                      </div>\n                    </li>\n                  </ul>\n                </div>\n              </div>\n            </nav>\n            <!-- End Navbar -->\n            ')
+        __M_writer('">\n                  <a class="nav-link" href="/dashboard/completed">\n                    <i class="material-icons">done</i>\n                    <p>Completed Polls</p>\n                  </a>\n                </li>\n                <li class="nav-item active-pro ">\n                  <a class="nav-link" href="./upgrade.html">\n                    <i class="material-icons">unarchive</i>\n                    <p>Upgrade to PRO</p>\n                  </a>\n                </li>\n              </ul>\n            </div>\n          </div>\n          <div class="main-panel">\n            <!-- Navbar -->\n            <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">\n              <div class="container-fluid">\n                <div class="navbar-wrapper">\n                  <a class="navbar-brand" href="#pablo">')
+        if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
+            context['self'].title(**pageargs)
+        
+
+        __M_writer('</a>\n                </div>\n                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">\n                  <span class="sr-only">Toggle navigation</span>\n                  <span class="navbar-toggler-icon icon-bar"></span>\n                  <span class="navbar-toggler-icon icon-bar"></span>\n                  <span class="navbar-toggler-icon icon-bar"></span>\n                </button>\n                <div class="collapse navbar-collapse justify-content-end">\n                  <form class="navbar-form">\n                    <div class="input-group no-border">\n                      <input type="text" value="" class="form-control" placeholder="Search...">\n                      <button type="submit" class="btn btn-white btn-round btn-just-icon">\n                        <i class="material-icons">search</i>\n                        <div class="ripple-container"></div>\n                      </button>\n                    </div>\n                  </form>\n                  <ul class="navbar-nav">\n                    <li class="nav-item">\n                      <a class="nav-link" href="#pablo">\n                        <i class="material-icons">dashboard</i>\n                        <p class="d-lg-none d-md-block">\n                          Stats\n                        </p>\n                      </a>\n                    </li>\n                    <li class="nav-item dropdown">\n                      <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n                        <i class="material-icons">notifications</i>\n                        <span class="notification">5</span>\n                        <p class="d-lg-none d-md-block">\n                          Some Actions\n                        </p>\n                      </a>\n                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">\n                        <a class="dropdown-item" href="#">Mike John responded to your email</a>\n                        <a class="dropdown-item" href="#">You have 5 new tasks</a>\n                        <a class="dropdown-item" href="#">You\'re now friend with Andrew</a>\n                        <a class="dropdown-item" href="#">Another Notification</a>\n                        <a class="dropdown-item" href="#">Another One</a>\n                      </div>\n                    </li>\n                    <li class="nav-item dropdown">\n                      <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n                        <i class="material-icons">person</i>\n                        <p class="d-lg-none d-md-block">\n                          Account\n                        </p>\n                      </a>\n                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">\n                        <a class="dropdown-item" href="#">Profile</a>\n                        <a class="dropdown-item" href="#">Settings</a>\n                        <div class="dropdown-divider"></div>\n                        <a class="dropdown-item" href="#">Log out</a>\n                      </div>\n                    </li>\n                  </ul>\n                </div>\n              </div>\n            </nav>\n            <!-- End Navbar -->\n            ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
             context['self'].content(**pageargs)
         
@@ -93,6 +100,18 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_title(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def title():
+            return render_title(context)
+        __M_writer = context.writer()
+        __M_writer('INSERT TITLE')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -106,6 +125,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 0, "28": 2, "29": 8, "30": 8, "31": 9, "32": 9, "33": 19, "34": 19, "35": 22, "36": 23, "37": 23, "38": 28, "39": 28, "40": 41, "41": 41, "42": 48, "43": 48, "44": 54, "45": 54, "50": 136, "51": 140, "52": 140, "53": 141, "54": 141, "55": 142, "56": 142, "57": 143, "58": 143, "59": 145, "60": 145, "61": 147, "62": 147, "63": 149, "64": 149, "65": 151, "66": 151, "67": 153, "68": 153, "69": 155, "70": 155, "71": 157, "72": 157, "73": 159, "74": 159, "75": 161, "76": 161, "77": 163, "78": 163, "79": 165, "80": 165, "81": 167, "82": 167, "83": 171, "84": 171, "85": 175, "86": 175, "87": 177, "88": 177, "89": 179, "90": 179, "96": 136, "107": 96}}
+{"filename": "/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 0, "30": 2, "31": 8, "32": 8, "33": 9, "34": 9, "35": 19, "36": 19, "37": 22, "38": 23, "39": 23, "40": 28, "41": 28, "42": 41, "43": 41, "44": 48, "45": 48, "46": 54, "47": 54, "52": 74, "57": 136, "58": 140, "59": 140, "60": 141, "61": 141, "62": 142, "63": 142, "64": 143, "65": 143, "66": 145, "67": 145, "68": 147, "69": 147, "70": 149, "71": 149, "72": 151, "73": 151, "74": 153, "75": 153, "76": 155, "77": 155, "78": 157, "79": 157, "80": 159, "81": 159, "82": 161, "83": 161, "84": 163, "85": 163, "86": 165, "87": 165, "88": 167, "89": 167, "90": 171, "91": 171, "92": 175, "93": 175, "94": 177, "95": 177, "96": 179, "97": 179, "103": 74, "109": 74, "115": 136, "126": 115}}
 __M_END_METADATA
 """
