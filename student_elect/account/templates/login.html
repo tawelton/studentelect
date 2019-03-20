@@ -1,0 +1,45 @@
+<%inherit file="app_base.htm" />
+
+<%block name="title">Sign In</%block>
+
+<%block name="pageContent">
+
+<!-- Default form login -->
+<form method="POST" class="text-center border border-light p-5">
+
+    <p class="h4 mb-4">Sign in</p>
+
+    <!-- Email -->
+    <input type="text" id=" ${form['username'].auto_id }" name="${ form['username'].name}" value="${ form['username'].cleaned_data.get('username') }" class="form-control mb-4" placeholder="E-mail or Username">
+
+    <!-- Password -->
+    <input type="password" id="${ form['password'].auto_id }" name="${ form['password'].name }" value="${ form['password'].value }" class="form-control mb-4" placeholder="Password">
+
+    <div class="d-flex justify-content-around">
+        <div>
+            <!-- Remember me -->
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="id_remember_me">
+                <label class="custom-control-label" for="${ form['remember_me'].id_for_label }" value="${ form['remember_me'].value }">Remember me</label>
+            </div>
+        </div>
+        <div>
+            <!-- Forgot password -->
+            <a href="/account/reset">Forgot password?</a>
+        </div>
+    </div>
+
+    <!-- Sign in button -->
+    <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
+
+    <!-- Register -->
+    <p>Not a member?
+        <a href="/account/register">Register</a>
+    </p>
+
+
+</form>
+<!-- Default form login -->
+
+
+</%block>

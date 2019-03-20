@@ -1,0 +1,33 @@
+-   model: account.user
+    pk: 1
+    fields:
+        password: pbkdf2_sha256$120000$GtwuktddhCMJ$sMO/673cKJDWPV0yIWvTOigNgF3pNWHpDHFfo9+vVBM=
+        last_login: 2019-02-28 01:13:19.965019+00:00
+        is_superuser: true
+        username: tawelton
+        first_name: 'Tanner'
+        last_name: 'Welton'
+        email: tanner.welton@gmail.com
+        is_staff: true
+        is_active: true
+        date_joined: 2019-02-19 20:51:39.622072+00:00
+        birthdate: null
+        groups: []
+        user_permissions: []
+
+-   model: account.user
+    pk: 2
+    fields:
+        password: pbkdf2_sha256$120000$GtwuktddhCMJ$sMO/673cKJDWPV0yIWvTOigNgF3pNWHpDHFfo9+vVBM=
+        last_login: 2019-02-28 01:13:19.965019+00:00
+        is_superuser: false
+        username: mbluth
+        first_name: ''
+        last_name: ''
+        email: michael@bluth.com
+        is_staff: true
+        is_active: true
+        date_joined: 2019-02-19 20:51:39.622072+00:00
+        birthdate: null
+        groups: []
+        user_permissions: []

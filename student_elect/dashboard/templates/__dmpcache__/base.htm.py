@@ -5,14 +5,14 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1552407172.501209
+_modified_time = 1553060345.436204
 _enable_loop = True
 _template_filename = '/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'utf-8'
 import django_mako_plus
 import django.utils.html
-_exports = ['title', 'content']
+_exports = ['title', 'pageTitle', 'content']
 
 
 def render_body(context,**pageargs):
@@ -20,18 +20,25 @@ def render_body(context,**pageargs):
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         self = context.get('self', UNDEFINED)
-        def title():
-            return render_title(context._locals(__M_locals))
         request = context.get('request', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
+        def title():
+            return render_title(context._locals(__M_locals))
+        def pageTitle():
+            return render_pageTitle(context._locals(__M_locals))
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('<!DOCTYPE html>\n<html>\n    <meta charset="UTF-8">\n    <head>\n\n        <meta charset="utf-8" />\n        <link rel="apple-touch-icon" sizes="76x76" href="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
         __M_writer('dashboard/media/theme/apple-icon.png">\n        <link rel="icon" type="image/png" href="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
-        __M_writer('dashboard/media/theme/favicon.png">\n        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />\n        <title>\n            Material Dashboard by Creative Tim\n        </title>\n        <meta content=\'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no\' name=\'viewport\' />\n        <!--     Fonts and icons     -->\n        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />\n        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">\n        <!-- CSS Files -->\n        <link href="')
+        __M_writer('dashboard/media/theme/favicon.png">\n        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />\n        <title>\n            ')
+        if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
+            context['self'].title(**pageargs)
+        
+
+        __M_writer(' - StudentElect\n        </title>\n        <meta content=\'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no\' name=\'viewport\' />\n        <!--     Fonts and icons     -->\n        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />\n        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">\n        <!-- CSS Files -->\n        <link href="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
         __M_writer('dashboard/styles/material-dashboard.css" rel="stylesheet" />\n\n')
         __M_writer('        <script src="/django_mako_plus/dmp-common.min.js"></script>\n        ')
@@ -45,8 +52,8 @@ def render_body(context,**pageargs):
         __M_writer('">\n                  <a class="nav-link" href="/dashboard/active">\n                    <i class="material-icons">list</i>\n                    <p>Active Polls</p>\n                  </a>\n                </li>\n                <li class="nav-item ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page == 'completed' else '' ))
         __M_writer('">\n                  <a class="nav-link" href="/dashboard/completed">\n                    <i class="material-icons">done</i>\n                    <p>Completed Polls</p>\n                  </a>\n                </li>\n                <li class="nav-item active-pro ">\n                  <a class="nav-link" href="./upgrade.html">\n                    <i class="material-icons">unarchive</i>\n                    <p>Upgrade to PRO</p>\n                  </a>\n                </li>\n              </ul>\n            </div>\n          </div>\n          <div class="main-panel">\n            <!-- Navbar -->\n            <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">\n              <div class="container-fluid">\n                <div class="navbar-wrapper">\n                  <a class="navbar-brand" href="#pablo">')
-        if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
-            context['self'].title(**pageargs)
+        if 'parent' not in context._data or not hasattr(context._data['parent'], 'pageTitle'):
+            context['self'].pageTitle(**pageargs)
         
 
         __M_writer('</a>\n                </div>\n                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">\n                  <span class="sr-only">Toggle navigation</span>\n                  <span class="navbar-toggler-icon icon-bar"></span>\n                  <span class="navbar-toggler-icon icon-bar"></span>\n                  <span class="navbar-toggler-icon icon-bar"></span>\n                </button>\n                <div class="collapse navbar-collapse justify-content-end">\n                  <form class="navbar-form">\n                    <div class="input-group no-border">\n                      <input type="text" value="" class="form-control" placeholder="Search...">\n                      <button type="submit" class="btn btn-white btn-round btn-just-icon">\n                        <i class="material-icons">search</i>\n                        <div class="ripple-container"></div>\n                      </button>\n                    </div>\n                  </form>\n                  <ul class="navbar-nav">\n                    <li class="nav-item">\n                      <a class="nav-link" href="#pablo">\n                        <i class="material-icons">dashboard</i>\n                        <p class="d-lg-none d-md-block">\n                          Stats\n                        </p>\n                      </a>\n                    </li>\n                    <li class="nav-item dropdown">\n                      <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n                        <i class="material-icons">notifications</i>\n                        <span class="notification">5</span>\n                        <p class="d-lg-none d-md-block">\n                          Some Actions\n                        </p>\n                      </a>\n                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">\n                        <a class="dropdown-item" href="#">Mike John responded to your email</a>\n                        <a class="dropdown-item" href="#">You have 5 new tasks</a>\n                        <a class="dropdown-item" href="#">You\'re now friend with Andrew</a>\n                        <a class="dropdown-item" href="#">Another Notification</a>\n                        <a class="dropdown-item" href="#">Another One</a>\n                      </div>\n                    </li>\n                    <li class="nav-item dropdown">\n                      <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n                        <i class="material-icons">person</i>\n                        <p class="d-lg-none d-md-block">\n                          Account\n                        </p>\n                      </a>\n                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">\n                        <a class="dropdown-item" href="#">Profile</a>\n                        <a class="dropdown-item" href="#">Settings</a>\n                        <div class="dropdown-divider"></div>\n                        <a class="dropdown-item" href="#">Log out</a>\n                      </div>\n                    </li>\n                  </ul>\n                </div>\n              </div>\n            </nav>\n            <!-- End Navbar -->\n            ')
@@ -106,6 +113,17 @@ def render_title(context,**pageargs):
         def title():
             return render_title(context)
         __M_writer = context.writer()
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_pageTitle(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def pageTitle():
+            return render_pageTitle(context)
+        __M_writer = context.writer()
         __M_writer('INSERT TITLE')
         return ''
     finally:
@@ -125,6 +143,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 0, "30": 2, "31": 8, "32": 8, "33": 9, "34": 9, "35": 19, "36": 19, "37": 22, "38": 23, "39": 23, "40": 28, "41": 28, "42": 41, "43": 41, "44": 48, "45": 48, "46": 54, "47": 54, "52": 74, "57": 136, "58": 140, "59": 140, "60": 141, "61": 141, "62": 142, "63": 142, "64": 143, "65": 143, "66": 145, "67": 145, "68": 147, "69": 147, "70": 149, "71": 149, "72": 151, "73": 151, "74": 153, "75": 153, "76": 155, "77": 155, "78": 157, "79": 157, "80": 159, "81": 159, "82": 161, "83": 161, "84": 163, "85": 163, "86": 165, "87": 165, "88": 167, "89": 167, "90": 171, "91": 171, "92": 175, "93": 175, "94": 177, "95": 177, "96": 179, "97": 179, "103": 74, "109": 74, "115": 136, "126": 115}}
+{"filename": "/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 0, "32": 2, "33": 8, "34": 8, "35": 9, "36": 9, "41": 12, "42": 19, "43": 19, "44": 22, "45": 23, "46": 23, "47": 28, "48": 28, "49": 41, "50": 41, "51": 48, "52": 48, "53": 54, "54": 54, "59": 74, "64": 136, "65": 140, "66": 140, "67": 141, "68": 141, "69": 142, "70": 142, "71": 143, "72": 143, "73": 145, "74": 145, "75": 147, "76": 147, "77": 149, "78": 149, "79": 151, "80": 151, "81": 153, "82": 153, "83": 155, "84": 155, "85": 157, "86": 157, "87": 159, "88": 159, "89": 161, "90": 161, "91": 163, "92": 163, "93": 165, "94": 165, "95": 167, "96": 167, "97": 171, "98": 171, "99": 175, "100": 175, "101": 177, "102": 177, "103": 179, "104": 179, "110": 12, "121": 74, "127": 74, "133": 136, "144": 133}}
 __M_END_METADATA
 """

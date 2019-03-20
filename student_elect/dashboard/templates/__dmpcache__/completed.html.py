@@ -5,10 +5,10 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1553060855.6843789
+_modified_time = 1553060488.0590432
 _enable_loop = True
-_template_filename = '/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/active.html'
-_template_uri = 'active.html'
+_template_filename = '/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/completed.html'
+_template_uri = 'completed.html'
 _source_encoding = 'utf-8'
 import django_mako_plus
 import django.utils.html
@@ -88,7 +88,7 @@ def render_page_content(context,**pageargs):
         def page_content():
             return render_page_content(context)
         __M_writer = context.writer()
-        __M_writer('\n  <div class="row">\n    <div class="col-lg-6 col-md-6">\n      <div class="card">\n        <div class="card-header card-header-primary">\n          <h3 class="card-title">Student Body Officers</h3>\n        </div>\n        <div class="card-body">\n          <div class="row">\n            <div class="col-lg-12 col-md-12 table-responsive">\n                <table class="table table-hover">\n                    <thead class="text-warning">\n                      <th>Rank</th>\n                      <th>Name</th>\n                      <th>Votes</th>\n                    </thead>\n                    <tbody>\n                      <tr>\n                        <td>1</td>\n                        <td>Dakota Rice</td>\n                        <td>476</td>\n                      </tr>\n                      <tr>\n                        <td>2</td>\n                        <td>Minerva Hooper</td>\n                        <td>450</td>\n                      </tr>\n                      <tr>\n                        <td>3</td>\n                        <td>Sage Rodriguez</td>\n                        <td>409</td>\n                      </tr>\n                      <tr>\n                        <td>4</td>\n                        <td>Philip Chaney</td>\n                        <td>387</td>\n                      </tr>\n                      <tr>\n                          <td>5</td>\n                          <td>David Fraire</td>\n                          <td>358</td>\n                        </tr>\n                    </tbody>\n                  </table>\n            </div>\n            <div class="col-lg-12 col-md-12">\n              <div class="row no-gutters justify-content-center">\n                <div class="col-xl-4 col-lg-6 col-md-6 p-1">\n                  <a class="btn btn-block btn-info" href="/dashboard/details/">Details</a>\n                </div>\n                <div class="col-xl-4 col-lg-6 col-md-6 p-1">\n                  <a class="btn btn-block btn-warning" href="/dashboard/edit">Edit</a>\n                </div>\n              </div>\n            </div>\n          </div>\n          \n        </div>\n      </div>\n    </div>\n  </div>\n')
+        __M_writer('\n  <div class="row">\n    <div class="col-lg-6 col-md-6">\n      <div class="card">\n        <div class="card-header card-header-primary">\n          <h3 class="card-title">Student Body Officers</h3>\n        </div>\n        <div class="card-body">\n          <div class="row">\n            <div class="col-lg-12 col-md-12 table-responsive">\n                <table class="table table-hover">\n                    <thead class="text-warning">\n                      <th>Rank</th>\n                      <th>Name</th>\n                      <th>Votes</th>\n                    </thead>\n                    <tbody>\n                      <tr>\n                        <td>1</td>\n                        <td>Dakota Rice</td>\n                        <td>476</td>\n                      </tr>\n                      <tr>\n                        <td>2</td>\n                        <td>Minerva Hooper</td>\n                        <td>450</td>\n                      </tr>\n                      <tr>\n                        <td>3</td>\n                        <td>Sage Rodriguez</td>\n                        <td>409</td>\n                      </tr>\n                      <tr>\n                        <td>4</td>\n                        <td>Philip Chaney</td>\n                        <td>387</td>\n                      </tr>\n                      <tr>\n                          <td>5</td>\n                          <td>David Fraire</td>\n                          <td>358</td>\n                        </tr>\n                    </tbody>\n                  </table>\n            </div>\n            <div class="col-lg-12 col-md-12">\n              <div class="row no-gutters justify-content-end">\n                <div class="col-xl-3 col-lg-4 col-md-6 p-1">\n                  <button class="btn btn-block btn-info">Details</button>\n                </div>\n                <div class="col-xl-3 col-lg-4 col-md-6 p-1">\n                  <link class="btn btn-block btn-warning" href="/dashboard/details">Edit</button>\n                </div>\n              </div>\n            </div>\n          </div>\n          \n        </div>\n      </div>\n    </div>\n  </div>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -96,6 +96,6 @@ def render_page_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/active.html", "uri": "active.html", "source_encoding": "utf-8", "line_map": {"29": 0, "40": 1, "45": 3, "50": 4, "55": 67, "61": 3, "67": 3, "73": 4, "79": 4, "85": 6, "91": 6, "97": 91}}
+{"filename": "/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/completed.html", "uri": "completed.html", "source_encoding": "utf-8", "line_map": {"29": 0, "40": 1, "45": 3, "50": 4, "55": 67, "61": 3, "67": 3, "73": 4, "79": 4, "85": 6, "91": 6, "97": 91}}
 __M_END_METADATA
 """
