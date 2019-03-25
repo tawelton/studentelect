@@ -1,0 +1,26 @@
+<%inherit file="app_base.htm" />
+
+<%block name="title">Create Poll</%block>
+<%block name="pageTitle">Create Poll</%block>
+
+<%block name="page_content">
+  <div class="row">
+    
+    <div class="col-lg-6 col-md-6">
+      <div class="card">
+        <div class="card-header card-header-primary">
+          <h3 class="card-title"></h3>
+        </div>
+        <div class="card-body">
+          <form method="POST">
+          ${ pollform.as_table() }
+
+          <input type="submit">
+        </form>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</%block>

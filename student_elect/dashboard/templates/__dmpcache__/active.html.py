@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1553060855.6843789
+_modified_time = 1553407781.381911
 _enable_loop = True
 _template_filename = '/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/active.html'
 _template_uri = 'active.html'
@@ -30,10 +30,12 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def page_content():
-            return render_page_content(context._locals(__M_locals))
+        polls = context.get('polls', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         def pageTitle():
             return render_pageTitle(context._locals(__M_locals))
+        def page_content():
+            return render_page_content(context._locals(__M_locals))
         def title():
             return render_title(context._locals(__M_locals))
         __M_writer = context.writer()
@@ -85,10 +87,28 @@ def render_pageTitle(context,**pageargs):
 def render_page_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        polls = context.get('polls', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         def page_content():
             return render_page_content(context)
         __M_writer = context.writer()
-        __M_writer('\n  <div class="row">\n    <div class="col-lg-6 col-md-6">\n      <div class="card">\n        <div class="card-header card-header-primary">\n          <h3 class="card-title">Student Body Officers</h3>\n        </div>\n        <div class="card-body">\n          <div class="row">\n            <div class="col-lg-12 col-md-12 table-responsive">\n                <table class="table table-hover">\n                    <thead class="text-warning">\n                      <th>Rank</th>\n                      <th>Name</th>\n                      <th>Votes</th>\n                    </thead>\n                    <tbody>\n                      <tr>\n                        <td>1</td>\n                        <td>Dakota Rice</td>\n                        <td>476</td>\n                      </tr>\n                      <tr>\n                        <td>2</td>\n                        <td>Minerva Hooper</td>\n                        <td>450</td>\n                      </tr>\n                      <tr>\n                        <td>3</td>\n                        <td>Sage Rodriguez</td>\n                        <td>409</td>\n                      </tr>\n                      <tr>\n                        <td>4</td>\n                        <td>Philip Chaney</td>\n                        <td>387</td>\n                      </tr>\n                      <tr>\n                          <td>5</td>\n                          <td>David Fraire</td>\n                          <td>358</td>\n                        </tr>\n                    </tbody>\n                  </table>\n            </div>\n            <div class="col-lg-12 col-md-12">\n              <div class="row no-gutters justify-content-center">\n                <div class="col-xl-4 col-lg-6 col-md-6 p-1">\n                  <a class="btn btn-block btn-info" href="/dashboard/details/">Details</a>\n                </div>\n                <div class="col-xl-4 col-lg-6 col-md-6 p-1">\n                  <a class="btn btn-block btn-warning" href="/dashboard/edit">Edit</a>\n                </div>\n              </div>\n            </div>\n          </div>\n          \n        </div>\n      </div>\n    </div>\n  </div>\n')
+        __M_writer('\n  <div class="row">\n    \n')
+        for poll in polls:
+            __M_writer('\n    <div class="col-lg-6 col-md-6">\n      <div class="card">\n        <div class="card-header card-header-primary">\n          <h3 class="card-title">')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( poll.title ))
+            __M_writer('</h3>\n        </div>\n        <div class="card-body">\n          <div class="row">\n            <div class="col-lg-12 col-md-12 table-responsive">\n                <table class="table table-hover">\n                    <thead class="text-warning">\n                      <th>Name</th>\n                      <th>Votes</th>\n                    </thead>\n                    <tbody>\n\n')
+            for candidate in poll.candidate_set.filter(status='A'):
+                __M_writer('\n                      <tr>\n                        <td>')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)( candidate.firstname + " " + candidate.lastname ))
+                __M_writer('</td>\n                        <td>')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)( candidate.vote_set.filter(round=poll.round).count() ))
+                __M_writer('</td>\n                      </tr>\n                      \n')
+            __M_writer('                    </tbody>\n                  </table>\n            </div>\n            <div class="col-lg-12 col-md-12">\n              <div class="row no-gutters justify-content-center">\n                <div class="col-xl-4 col-lg-6 col-md-6 p-1">\n                  <a class="btn btn-block btn-info" href="/dashboard/details/')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( poll.id ))
+            __M_writer('">Details</a>\n                </div>\n                <div class="col-xl-4 col-lg-6 col-md-6 p-1">\n                  <a class="btn btn-block btn-warning" href="/dashboard/edit/')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( poll.id ))
+            __M_writer('">Edit</a>\n                </div>\n              </div>\n            </div>\n          </div>\n          \n        </div>\n      </div>\n    </div>\n\n')
+        __M_writer('\n  </div>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -96,6 +116,6 @@ def render_page_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/active.html", "uri": "active.html", "source_encoding": "utf-8", "line_map": {"29": 0, "40": 1, "45": 3, "50": 4, "55": 67, "61": 3, "67": 3, "73": 4, "79": 4, "85": 6, "91": 6, "97": 91}}
+{"filename": "/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/active.html", "uri": "active.html", "source_encoding": "utf-8", "line_map": {"29": 0, "42": 1, "47": 3, "52": 4, "57": 56, "63": 3, "69": 3, "75": 4, "81": 4, "87": 6, "95": 6, "96": 9, "97": 10, "98": 14, "99": 14, "100": 26, "101": 27, "102": 29, "103": 29, "104": 30, "105": 30, "106": 34, "107": 40, "108": 40, "109": 43, "110": 43, "111": 54, "117": 111}}
 __M_END_METADATA
 """
