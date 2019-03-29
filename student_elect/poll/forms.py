@@ -14,9 +14,14 @@ class CandidateForm(forms.ModelForm):
         model = models.Candidate
         fields = ['firstname', 'lastname', 'imagefile']
         widgets = {
-            'firstname': forms.TextInput(),
-            'lastname': forms.TextInput(),
-            'imagefile': forms.FileInput()
+            'firstname': forms.TextInput(attrs={'class': 'form-control'}),
+            'lastname': forms.TextInput(attrs={'class': 'form-control'}),
+            'imagefile': forms.FileInput(attrs={'class': 'form-control-file'}),
+        }
+        labels = {
+            'firstname': 'First Name',
+            'lastname': 'Last Name',
+            'imagefile': 'Image File',
         }
 
 class StudentForm(forms.ModelForm):

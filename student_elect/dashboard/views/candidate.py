@@ -24,7 +24,6 @@ def process_request(request):
         candidate.poll = mods.Poll.objects.get(id=1)
 
         candidate.status = 'A'
-        candidate.round = 1
 
         print(">>>>>>>>>>>>")
         print(candidate.poll)

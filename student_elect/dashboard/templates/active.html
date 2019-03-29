@@ -4,53 +4,58 @@
 <%block name="pageTitle">Active Polls</%block>
 
 <%block name="page_content">
-  <div class="row">
-    
-    %for poll in polls:
 
-    <div class="col-lg-6 col-md-6">
-      <div class="card">
-        <div class="card-header card-header-primary">
-          <h3 class="card-title">${ poll.title }</h3>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-lg-12 col-md-12 table-responsive">
-                <table class="table table-hover">
-                    <thead class="text-warning">
-                      <th>Name</th>
-                      <th>Votes</th>
-                    </thead>
-                    <tbody>
+  <% from django.db.models import Count %>
 
-                      %for candidate in poll.candidate_set.filter(status='A'):
+  <div class="container-fluid">
+    <div class="row">
+      
+      %for poll in polls:
 
-                      <tr>
-                        <td>${ candidate.firstname + " " + candidate.lastname }</td>
-                        <td>${ candidate.vote_set.filter(round=poll.round).count() }</td>
-                      </tr>
-                      
-                      %endfor
-                    </tbody>
-                  </table>
-            </div>
-            <div class="col-lg-12 col-md-12">
-              <div class="row no-gutters justify-content-center">
-                <div class="col-xl-4 col-lg-6 col-md-6 p-1">
-                  <a class="btn btn-block btn-info" href="/dashboard/details/${ poll.id }">Details</a>
-                </div>
-                <div class="col-xl-4 col-lg-6 col-md-6 p-1">
-                  <a class="btn btn-block btn-warning" href="/dashboard/edit/${ poll.id }">Edit</a>
+      <div class="col-lg-6 col-md-6">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h3 class="card-title">${ poll.title }</h3>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 table-responsive">
+                  <table class="table table-hover">
+                      <thead class="text-warning">
+                        <th>Name</th>
+                        <th>Votes</th>
+                      </thead>
+                      <tbody>
+
+                        %for candidate in poll.candidate_set.filter(status='A').annotate(num_votes=Count('vote')).order_by('-num_votes')[:5]:
+
+                        <tr>
+                          <td>${ candidate.firstname + " " + candidate.lastname }</td>
+                          <td>${ candidate.vote_set.filter(round=poll.round).count() }</td>
+                        </tr>
+                        
+                        %endfor
+                      </tbody>
+                    </table>
+              </div>
+              <div class="col-lg-12 col-md-12">
+                <div class="row no-gutters justify-content-center">
+                  <div class="col-xl-4 col-lg-6 col-md-6 p-1">
+                    <a class="btn btn-block btn-info" href="/dashboard/details/${ poll.id }">Details</a>
+                  </div>
+                  <div class="col-xl-4 col-lg-6 col-md-6 p-1">
+                    <a class="btn btn-block btn-warning" href="/dashboard/edit/${ poll.id }">Edit</a>
+                  </div>
                 </div>
               </div>
             </div>
+            
           </div>
-          
         </div>
       </div>
+
+      %endfor
+
     </div>
-
-    %endfor
-
   </div>
 </%block>

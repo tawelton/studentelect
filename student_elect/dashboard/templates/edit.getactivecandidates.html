@@ -1,0 +1,33 @@
+<%inherit file="base_ajax.htm" />
+
+<%block name="content">
+<% from student_elect import settings %>
+
+<div class="container">
+    <div class="row">
+      %for candidate in candidates:
+      <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-6 candidate">
+        <div class="card mt-1">
+          <div class="card-img-top" style="padding:1rem;">
+            <div class="cand-image" style="background-image: url('${ settings.STATIC_URL + settings.MEDIA_URL + str(candidate.imagefile) }');"></div>
+          </div>
+          <div class="card-body pt-0">
+            <center>
+              <div class="h6 cand-firstname">${ candidate.firstname }</div>
+              <div class="h6 cand-lastname">${ candidate.lastname }</div>
+            </center>
+          </div>
+          <div class="close" data-id="${ candidate.id }">
+              <i class="material-icons">
+                  close
+              </i>
+          </div>
+        </div>
+      </div>
+      %endfor
+  </div>
+</div>
+  
+
+
+</%block>

@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1553408504.060431
+_modified_time = 1553832648.088533
 _enable_loop = True
 _template_filename = '/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/app_base.htm'
 _template_uri = 'app_base.htm'
@@ -53,12 +53,12 @@ def render_content(context,**pageargs):
         def content():
             return render_content(context)
         __M_writer = context.writer()
-        __M_writer('\n  <div class="content">\n    <div class="container-fluid">\n      ')
+        __M_writer('\n  <div class="content">\n    ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_content'):
             context['self'].page_content(**pageargs)
         
 
-        __M_writer('\n    </div>\n  </div>\n')
+        __M_writer('\n  </div>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -70,7 +70,7 @@ def render_page_content(context,**pageargs):
         def page_content():
             return render_page_content(context)
         __M_writer = context.writer()
-        __M_writer('\n        ADD CONTENT HERE\n      ')
+        __M_writer('\n      ADD CONTENT HERE\n    ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -78,6 +78,6 @@ def render_page_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"29": 0, "38": 1, "48": 2, "56": 2, "61": 7, "67": 5, "73": 5, "79": 73}}
+{"filename": "/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"29": 0, "38": 1, "48": 2, "56": 2, "61": 6, "67": 4, "73": 4, "79": 73}}
 __M_END_METADATA
 """
