@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1553834857.1024141
+_modified_time = 1553968784.927826
 _enable_loop = True
 _template_filename = '/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/active.html'
 _template_uri = 'active.html'
@@ -30,14 +30,14 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def pageTitle():
-            return render_pageTitle(context._locals(__M_locals))
         def page_content():
             return render_page_content(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
         polls = context.get('polls', UNDEFINED)
         def title():
             return render_title(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
+        def pageTitle():
+            return render_pageTitle(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
@@ -87,30 +87,28 @@ def render_pageTitle(context,**pageargs):
 def render_page_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        polls = context.get('polls', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         def page_content():
             return render_page_content(context)
-        self = context.get('self', UNDEFINED)
+        polls = context.get('polls', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n\n  ')
         from django.db.models import Count 
         
         __M_writer('\n\n  <div class="container-fluid">\n    <div class="row">\n      \n')
         for poll in polls:
-            __M_writer('\n      <div class="col-lg-6 col-md-6">\n        <div class="card">\n          <div class="card-header card-header-primary">\n            <h3 class="card-title">')
+            __M_writer('\n      <div class="col-lg-6 col-md-6">\n        <div class="card mt-0">\n          <div class="card-body">\n              <h3 class="card-title">')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)( poll.title ))
-            __M_writer('</h3>\n          </div>\n          <div class="card-body">\n            <div class="row">\n              <div class="col-lg-12 col-md-12 table-responsive">\n                  <table class="table table-hover">\n                      <thead class="text-warning">\n                        <th>Name</th>\n                        <th>Votes</th>\n                      </thead>\n                      <tbody>\n\n')
+            __M_writer('</h3>\n            <div class="row">\n              <div class="col-lg-12 col-md-12 table-responsive mt-3">\n                  <table class="table table-hover">\n                      <h6 class="h6 text-left mb-0 ml-2">Top 5</h6>\n                      <thead class="text-primary">\n                        <th>Name</th>\n                        <th class="text-center">Votes</th>\n                      </thead>\n                      <tbody>\n\n')
             for candidate in poll.candidate_set.filter(status='A').annotate(num_votes=Count('vote')).order_by('-num_votes')[:5]:
                 __M_writer('\n                        <tr>\n                          <td>')
                 __M_writer(django_mako_plus.ExpressionPostProcessor(self)( candidate.firstname + " " + candidate.lastname ))
-                __M_writer('</td>\n                          <td>')
+                __M_writer('</td>\n                          <td class="text-center">')
                 __M_writer(django_mako_plus.ExpressionPostProcessor(self)( candidate.vote_set.filter(round=poll.round).count() ))
                 __M_writer('</td>\n                        </tr>\n                        \n')
-            __M_writer('                      </tbody>\n                    </table>\n              </div>\n              <div class="col-lg-12 col-md-12">\n                <div class="row no-gutters justify-content-center">\n                  <div class="col-xl-4 col-lg-6 col-md-6 p-1">\n                    <a class="btn btn-block btn-info" href="/dashboard/details/')
+            __M_writer('                      </tbody>\n                    </table>\n              </div>\n            </div>\n          </div>\n          <a class="btn btn-block btn-warning btn-round btn-just-icon edit-button" href="/dashboard/edit/')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)( poll.id ))
-            __M_writer('">Details</a>\n                  </div>\n                  <div class="col-xl-4 col-lg-6 col-md-6 p-1">\n                    <a class="btn btn-block btn-warning" href="/dashboard/edit/')
-            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( poll.id ))
-            __M_writer('">Edit</a>\n                  </div>\n                </div>\n              </div>\n            </div>\n            \n          </div>\n        </div>\n      </div>\n\n')
+            __M_writer('"><i class="material-icons">edit</i></a>\n        </div>\n      </div>\n\n')
         __M_writer('\n    </div>\n  </div>\n')
         return ''
     finally:
@@ -119,6 +117,6 @@ def render_page_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/active.html", "uri": "active.html", "source_encoding": "utf-8", "line_map": {"29": 0, "42": 1, "47": 3, "52": 4, "57": 61, "63": 3, "69": 3, "75": 4, "81": 4, "87": 6, "95": 6, "96": 8, "98": 8, "99": 13, "100": 14, "101": 18, "102": 18, "103": 30, "104": 31, "105": 33, "106": 33, "107": 34, "108": 34, "109": 38, "110": 44, "111": 44, "112": 47, "113": 47, "114": 58, "120": 114}}
+{"filename": "/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/active.html", "uri": "active.html", "source_encoding": "utf-8", "line_map": {"29": 0, "42": 1, "47": 3, "52": 4, "57": 50, "63": 3, "69": 3, "75": 4, "81": 4, "87": 6, "95": 6, "96": 8, "98": 8, "99": 13, "100": 14, "101": 18, "102": 18, "103": 29, "104": 30, "105": 32, "106": 32, "107": 33, "108": 33, "109": 37, "110": 42, "111": 42, "112": 47, "118": 112}}
 __M_END_METADATA
 """

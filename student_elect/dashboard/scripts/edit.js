@@ -4,13 +4,33 @@ $((function(context) {
         function getcandidates(){
             var container = $("#candidate-container");
             $.ajax({
-                url: "/dashboard/edit.getactivecandidates/" + context.poll,
+                url: "/dashboard/edit.getactivecandidates/" + context.pollID,
             }).done(function(content) {
                 $(container).html(content);
             })
         }
         
         $(document).ready(getcandidates);
+
+        $("#pollStatus").click(function() {
+            $.ajax({
+                url: "/dashboard/edit.togglepollstatus/" + context.pollID,
+                type: 'POST'
+              }).done(function(content) {
+                location.reload();
+              });
+
+        });
+
+        $("#pollEnd").click(function() {
+            $.ajax({
+                url: "/dashboard/edit.endpoll/" + context.pollID,
+                type: 'POST'
+              }).done(function(content) {
+                location.href = "/dashboard/active/";
+              });
+
+        });
 
         $("#candidateform").submit(function(event){
             event.preventDefault(); //prevent default action 

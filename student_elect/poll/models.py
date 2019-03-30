@@ -8,7 +8,7 @@ class Poll(models.Model):
     title = models.TextField(null=True)
     datecreated = models.DateTimeField(null = True, default=datetime.date.today())
     round = models.IntegerField(default=0, null=True)
-    status = models.TextField(choices = (('Active', 'A'),('Inactive','I')), default = 'A')
+    status = models.TextField(choices = (('Active', 'A'),('Inactive','I')), default = 'I')
     user = models.ForeignKey("account.User", on_delete=models.CASCADE)
 
 class Candidate(models.Model):

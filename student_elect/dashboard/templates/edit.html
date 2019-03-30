@@ -6,17 +6,40 @@
 <%block name="page_content">
 
 <div class="container-fluid">
+
   <div class="row">
     <div class="col-12">
-          <div id="candidate-container">Loading...</div>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#candidateModal">Add Candidate</button>
 
+      <div class="card mt-0 mb-0">
+        <div class="card-body">
+          %if poll.status == 'A':
+          <button type="button" class="btn btn-sm btn-warning" id="pollStatus"><i class="material-icons">pause</i> Pause Poll</button>
+          %else:
+          <button type="button" class="btn btn-sm btn-success" id="pollStatus"><i class="material-icons">play_arrow</i> Start Poll</button>
+          %endif
+          <button type="button" class="btn btn-sm btn-info" id="pollRound"><i class="material-icons">skip_next</i> Next Round</button>
+          <button type="button" class="btn btn-sm btn-danger" id="pollEnd" style="float:right;"><i class="material-icons">stop</i> End Poll</button>
+    
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h3 class="pl-3">Candidates: 
+          <button type="button" class="btn btn-sm btn-primary btn-round btn-just-icon" data-toggle="modal" data-target="#candidateModal"><i class="material-icons">add</i></button>
+      </h3>
+      <div id="candidate-container">Loading Candidates...</div>
+      
     </div>
 
 
   </div>
 
-  <form method="POST" action="/dashboard/edit.addcandidate/${ poll }" id="candidateform" enctype="multipart/form-data">
+  <form method="POST" action="/dashboard/edit.addcandidate/${ poll.id }" id="candidateform" enctype="multipart/form-data">
     <div class="modal fade" id="candidateModal"> 
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -26,10 +49,15 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            
-              ${ candidateform }
+          <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-10 col-md-12">
+                <div class="modal-body">
+              
+                    ${ candidateform }
+                </div>
+            </div>
           </div>
+            
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary" id="candidateSubmit">Add Candidate</button>

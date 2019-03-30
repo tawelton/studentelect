@@ -6,19 +6,22 @@
 <%block name="page_content">
 
   <div class="container-fluid">
-    <div class="row">
+    <div class="row justify-content-center">
       
       <div class="col-lg-6 col-md-6">
         <div class="card">
-          <div class="card-header card-header-primary">
-            <h3 class="card-title"></h3>
-          </div>
           <div class="card-body">
-            <form method="POST">
-            ${ pollform.as_table() }
+            <div class="p-4">
 
-            <input type="submit">
-          </form>
+              <div class="create-poll-prompt mb-4">
+                <h3 class="text-left mt-0">Let's start off by giving the new poll a name.</h3>
+              </div>
+              <form method="POST">
+              ${ pollform.as_table() }
+
+              <button type="submit" class="btn btn-primary mt-4">Create</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

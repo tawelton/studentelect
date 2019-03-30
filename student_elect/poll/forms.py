@@ -6,7 +6,7 @@ class PollForm(forms.ModelForm):
         model = models.Poll
         fields = ['title']
         widgets = {
-            'title': forms.TextInput()
+            'title': forms.TextInput(attrs={'class': 'form-control'})
         }
     
 class CandidateForm(forms.ModelForm):

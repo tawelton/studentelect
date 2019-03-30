@@ -5,3 +5,9 @@
 .outline-top {
   border-top: 1px 
 }
+
+.edit-button {
+  position: absolute !important;
+  top: 5px;
+  right: 8px;
+}

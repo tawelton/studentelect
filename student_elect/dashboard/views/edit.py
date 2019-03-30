@@ -15,7 +15,8 @@ def process_request(request, poll: int = None):
     return request.dmp.render('edit.html', 
     { 
         'candidateform': forms.CandidateForm(),
-        jscontext('poll'): poll,
+        jscontext('pollID'): poll,
+        'poll': mods.Poll.objects.filter(id=poll).first()
     })
 
 @login_required
@@ -30,7 +31,7 @@ def addcandidate(request, poll: int = None):
 
         candidate = candidateform.save(commit=False)
 
-        candidate.poll = mods.Poll.objects.get(id=1)
+        candidate.poll = mods.Poll.objects.get(id=poll)
         candidate.status = 'A'
 
         candidate.save()
@@ -58,6 +59,7 @@ def getactivecandidates(request, poll: int = None):
     return request.dmp.render('edit.getactivecandidates.html', 
     { 
         'candidates': candidates,
+        'poll': mods.Poll.objects.filter(id=poll).first(),
     })
 
 @login_required
@@ -71,3 +73,48 @@ def getinactivecandidates(request, poll: int = None):
         'candidates': candidates,
     })
 
+@login_required
+@view_function
+def togglepollstatus(request, pollID: int = None):
+
+    if request.method == 'POST':
+
+        poll = mods.Poll.objects.filter(id=pollID).first()
+
+        if poll.status == "A":
+            poll.status = "I"
+        else:
+            poll.status = "A"
+
+        poll.save()
+
+    return HttpResponse('')
+
+@login_required
+@view_function
+def endpoll(request, pollID: int = None):
+
+    if request.method == 'POST':
+
+        poll = mods.Poll.objects.filter(id=pollID).first()
+
+        poll.status = "C"
+
+        poll.save()
+
+    return HttpResponse('')
+
+
+@login_required
+@view_function
+def deletepoll(request, pollID: int = None):
+
+    if request.method == 'POST':
+
+        poll = mods.Poll.objects.filter(id=pollID).first()
+
+        poll.status = "D"
+
+        poll.save()
+
+    return HttpResponse('')
