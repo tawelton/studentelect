@@ -4,22 +4,28 @@
 <% from student_elect import settings %>
 
 <div class="container-fluid">
-    <div class="row">
-        %for candidate in candidates:
-        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-6 candidate">
-          <div class="card mt-1">
-            <div class="card-img-top" style="padding:1rem;">
-              <div class="cand-image" style="background-image: url('${ settings.STATIC_URL + settings.MEDIA_URL + str(candidate.imagefile) }');"></div>
-            </div>
-            <div class="card-body pt-0">
-              <center>
-                <div class="h6 cand-firstname">${ candidate.firstname }</div>
-                <div class="h6 cand-lastname">${ candidate.lastname }</div>
-              </center>
-            </div>
+  <div class="row justify-content-center">
+      %for candidate in candidates:
+      <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-6 candidate">
+        <div class="card mt-1 candidateCard" data-id="${ candidate.id }" data-checked="unchecked">
+          <div class="card-img-top" style="padding:1rem;">
+            <div class="cand-image" style="background-image: url('${ settings.STATIC_URL + settings.MEDIA_URL + str(candidate.imagefile) }');"></div>
+          </div>
+          <div class="card-body pt-0">
+            <center>
+              <div class="h6 cand-firstname">${ candidate.firstname }</div>
+              <div class="h6 cand-lastname">${ candidate.lastname }</div>
+            </center>
           </div>
         </div>
-        %endfor
+      </div>
+      %endfor
+  </div>
+  <div class="row justify-content-right">
+    <div class="col-12">
+      <p class="text-muted">You may select up to ${ votelimit } ${ 'candidates' if votelimit > 1 else 'candidate'}</p>
+      <button class="btn btn-primary btn-lg" id="voteButton">Submit Vote</button>
+    </div>
   </div>
 </div>
   

@@ -21,6 +21,13 @@
                             </div>
                         </div>
                     %endfor
+                    %if len(polls) == 0:
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-md-10 col-sm-12 m-3">
+                            <span class="h3 text-muted">Nothing to see here, check back later!</span>
+                        </div>
+                    </div>
+                    %endif
                 </div>
 
             </div> 

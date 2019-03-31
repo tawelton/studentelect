@@ -5,29 +5,26 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554066764.112745
+_modified_time = 1554066072.54225
 _enable_loop = True
-_template_filename = '/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/base.htm'
-_template_uri = 'base.htm'
+_template_filename = '/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/poll/templates/base.htm'
+_template_uri = '/poll/templates/base.htm'
 _source_encoding = 'utf-8'
 import django_mako_plus
 import django.utils.html
-_exports = ['title', 'pageTitle', 'content']
+_exports = ['title', 'content']
 
 
 def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        request = context.get('request', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def title():
-            return render_title(context._locals(__M_locals))
-        def pageTitle():
-            return render_pageTitle(context._locals(__M_locals))
         self = context.get('self', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
+        def title():
+            return render_title(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('<!DOCTYPE html>\n<html>\n    <meta charset="UTF-8">\n    <head>\n\n        <meta charset="utf-8" />\n        <link rel="apple-touch-icon" sizes="76x76" href="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
@@ -41,25 +38,12 @@ def render_body(context,**pageargs):
         __M_writer(' - StudentElect\n        </title>\n        <meta content=\'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no\' name=\'viewport\' />\n        <!--     Fonts and icons     -->\n        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />\n        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">\n        <!-- CSS Files -->\n        <link href="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
         __M_writer('dashboard/styles/material-dashboard.css" rel="stylesheet" />\n\n')
-        __M_writer('\n    </head>\n    <body class="">\n        <div class="wrapper ">\n          <div class="sidebar" data-color="purple" data-background-color="white" data-image="')
-        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
-        __M_writer('dashboard/media/theme/sidebar-1.jpg">\n            <!--\n              Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"\n      \n              Tip 2: you can also add an image using data-image tag\n          -->\n            <div class="logo">\n              <a href="http://www.creative-tim.com" class="simple-text logo-normal">\n                Student Elect\n              </a>\n            </div>\n            <div class="sidebar-wrapper">\n              <ul class="nav">\n                <li class="nav-item ')
-        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page == 'create' else '' ))
-        __M_writer('">\n                  <a class="nav-link" href="/dashboard/create">\n                    <i class="material-icons">add_box</i>\n                    <p>Create Poll</p>\n                  </a>\n                </li>\n                <hr/>\n                <li class="nav-item ')
-        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page == 'active' else '' ))
-        __M_writer('">\n                  <a class="nav-link" href="/dashboard/active">\n                    <i class="material-icons">list</i>\n                    <p>Active Polls</p>\n                  </a>\n                </li>\n                <li class="nav-item ')
-        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page == 'completed' else '' ))
-        __M_writer('">\n                  <a class="nav-link" href="/dashboard/completed">\n                    <i class="material-icons">done</i>\n                    <p>Completed Polls</p>\n                  </a>\n                </li>\n                <li class="nav-item active-pro ">\n                  <a class="nav-link" href="/account/logout/">\n                    <i class="material-icons">exit_to_app</i>\n                    <p>Sign out</p>\n                  </a>\n                </li>\n              </ul>\n            </div>\n          </div>\n          <div class="main-panel">\n            <!-- Navbar -->\n            <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">\n              <div class="container-fluid">\n                <div class="navbar-wrapper">\n                  <a class="navbar-brand" href="#pablo">')
-        if 'parent' not in context._data or not hasattr(context._data['parent'], 'pageTitle'):
-            context['self'].pageTitle(**pageargs)
-        
-
-        __M_writer('</a>\n                </div>\n                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">\n                  <span class="sr-only">Toggle navigation</span>\n                  <span class="navbar-toggler-icon icon-bar"></span>\n                  <span class="navbar-toggler-icon icon-bar"></span>\n                  <span class="navbar-toggler-icon icon-bar"></span>\n                </button>\n              </div>\n            </nav>\n            <!-- End Navbar -->\n            ')
+        __M_writer('\n    </head>\n    <body class="">\n        <div class="wrapper">\n          ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
             context['self'].content(**pageargs)
         
 
-        __M_writer('\n          </div>\n        </div>\n        <!--   Core JS Files   -->\n        <script src="')
+        __M_writer('\n        </div>\n        <!--   Core JS Files   -->\n        <script src="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
         __M_writer('dashboard/scripts/core/jquery.min.js"></script>\n        <script src="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
@@ -118,18 +102,6 @@ def render_title(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_pageTitle(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def pageTitle():
-            return render_pageTitle(context)
-        __M_writer = context.writer()
-        __M_writer('INSERT TITLE')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -143,6 +115,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 0, "32": 2, "33": 8, "34": 8, "35": 9, "36": 9, "41": 12, "42": 19, "43": 19, "44": 22, "45": 26, "46": 26, "47": 39, "48": 39, "49": 46, "50": 46, "51": 52, "52": 52, "57": 72, "62": 83, "63": 87, "64": 87, "65": 88, "66": 88, "67": 89, "68": 89, "69": 90, "70": 90, "71": 92, "72": 92, "73": 94, "74": 94, "75": 96, "76": 96, "77": 98, "78": 98, "79": 100, "80": 100, "81": 102, "82": 102, "83": 104, "84": 104, "85": 106, "86": 106, "87": 108, "88": 108, "89": 110, "90": 110, "91": 112, "92": 112, "93": 114, "94": 114, "95": 118, "96": 118, "97": 122, "98": 122, "99": 124, "100": 124, "101": 126, "102": 126, "103": 130, "104": 130, "110": 12, "121": 72, "127": 72, "133": 83, "144": 133}}
+{"filename": "/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/poll/templates/base.htm", "uri": "/poll/templates/base.htm", "source_encoding": "utf-8", "line_map": {"18": 0, "29": 2, "30": 8, "31": 8, "32": 9, "33": 9, "38": 12, "39": 19, "40": 19, "41": 22, "46": 26, "47": 29, "48": 29, "49": 30, "50": 30, "51": 31, "52": 31, "53": 32, "54": 32, "55": 34, "56": 34, "57": 36, "58": 36, "59": 38, "60": 38, "61": 40, "62": 40, "63": 42, "64": 42, "65": 44, "66": 44, "67": 46, "68": 46, "69": 48, "70": 48, "71": 50, "72": 50, "73": 52, "74": 52, "75": 54, "76": 54, "77": 56, "78": 56, "79": 60, "80": 60, "81": 64, "82": 64, "83": 66, "84": 66, "85": 68, "86": 68, "87": 72, "88": 72, "94": 12, "105": 26, "116": 105}}
 __M_END_METADATA
 """

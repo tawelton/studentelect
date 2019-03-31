@@ -18,3 +18,7 @@
 .cand-votes {
     font-size:.7rem;
 }
+
+.checked-candidate {
+    opacity: 0.25;
+}

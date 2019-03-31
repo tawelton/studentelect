@@ -38,5 +38,5 @@ urlpatterns = [
         name='/dashboard/',
     ),
 
-    url(r'^(?P<username>[_a-zA-Z0-9\-]+)/?$', include('poll.urls'))
+    url(r'^(?P<username>[_a-zA-Z0-9\-]+)/?', include('poll.urls'))
 ]
