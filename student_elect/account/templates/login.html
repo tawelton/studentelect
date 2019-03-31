@@ -6,7 +6,7 @@
 
 <!-- Default form login -->
     <div class="card col-xl-4 col-lg-5 col-md-7 col-sm-9 align-self-center">
-        <form method="POST" action="" class="text-center p-4">
+        <form method="POST" action="/account/login/" class="text-center p-4">
 
             <p class="h4 mb-4">Sign in</p>
 
@@ -37,6 +37,8 @@
             <p>Not a member?
                 <a href="/account/register">Register</a>
             </p>
+
+            <input type="hidden" name="next" value="${ next if next is not None else '' }">
 
 
         </form>

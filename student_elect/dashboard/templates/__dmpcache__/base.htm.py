@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1553842893.0748239
+_modified_time = 1553969025.1250072
 _enable_loop = True
 _template_filename = '/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/base.htm'
 _template_uri = 'base.htm'
@@ -19,15 +19,15 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        self = context.get('self', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        def title():
-            return render_title(context._locals(__M_locals))
-        def pageTitle():
-            return render_pageTitle(context._locals(__M_locals))
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         request = context.get('request', UNDEFINED)
+        def title():
+            return render_title(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        def pageTitle():
+            return render_pageTitle(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('<!DOCTYPE html>\n<html>\n    <meta charset="UTF-8">\n    <head>\n\n        <meta charset="utf-8" />\n        <link rel="apple-touch-icon" sizes="76x76" href="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
@@ -55,7 +55,7 @@ def render_body(context,**pageargs):
             context['self'].pageTitle(**pageargs)
         
 
-        __M_writer('</a>\n                </div>\n                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">\n                  <span class="sr-only">Toggle navigation</span>\n                  <span class="navbar-toggler-icon icon-bar"></span>\n                  <span class="navbar-toggler-icon icon-bar"></span>\n                  <span class="navbar-toggler-icon icon-bar"></span>\n                </button>\n                <div class="collapse navbar-collapse justify-content-end">\n                  <form class="navbar-form">\n                    <div class="input-group no-border">\n                      <input type="text" value="" class="form-control" placeholder="Search...">\n                      <button type="submit" class="btn btn-white btn-round btn-just-icon">\n                        <i class="material-icons">search</i>\n                        <div class="ripple-container"></div>\n                      </button>\n                    </div>\n                  </form>\n                  <ul class="navbar-nav">\n                    <li class="nav-item dropdown">\n                      <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n                        <i class="material-icons">notifications</i>\n                        <span class="notification">5</span>\n                        <p class="d-lg-none d-md-block">\n                          Notifications\n                        </p>\n                      </a>\n                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">\n                        <a class="dropdown-item" href="#">Mike John responded to your email</a>\n                        <a class="dropdown-item" href="#">You have 5 new tasks</a>\n                        <a class="dropdown-item" href="#">You\'re now friend with Andrew</a>\n                        <a class="dropdown-item" href="#">Another Notification</a>\n                        <a class="dropdown-item" href="#">Another One</a>\n                      </div>\n                    </li>\n                    <li class="nav-item dropdown">\n                      <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n                        <i class="material-icons">person</i>\n                        <p class="d-lg-none d-md-block">\n                          Account\n                        </p>\n                      </a>\n                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">\n                        <a class="dropdown-item" href="#">Profile</a>\n                        <a class="dropdown-item" href="#">Settings</a>\n                        <div class="dropdown-divider"></div>\n                        <a class="dropdown-item" href="/account/logout/">Log out</a>\n                      </div>\n                    </li>\n                  </ul>\n                </div>\n              </div>\n            </nav>\n            <!-- End Navbar -->\n            ')
+        __M_writer('</a>\n                </div>\n                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">\n                  <span class="sr-only">Toggle navigation</span>\n                  <span class="navbar-toggler-icon icon-bar"></span>\n                  <span class="navbar-toggler-icon icon-bar"></span>\n                  <span class="navbar-toggler-icon icon-bar"></span>\n                </button>\n                <div class="collapse navbar-collapse justify-content-end">\n                  <ul class="navbar-nav">\n                    <li class="nav-item dropdown">\n                      <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n                        <i class="material-icons">person</i>\n                        <p class="d-lg-none d-md-block">\n                          Account\n                        </p>\n                      </a>\n                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">\n                        <a class="dropdown-item" href="#">Profile</a>\n                        <a class="dropdown-item" href="#">Settings</a>\n                        <div class="dropdown-divider"></div>\n                        <a class="dropdown-item" href="/account/logout/">Log out</a>\n                      </div>\n                    </li>\n                  </ul>\n                </div>\n              </div>\n            </nav>\n            <!-- End Navbar -->\n            ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
             context['self'].content(**pageargs)
         
@@ -144,6 +144,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 0, "32": 2, "33": 8, "34": 8, "35": 9, "36": 9, "41": 12, "42": 19, "43": 19, "44": 22, "45": 26, "46": 26, "47": 39, "48": 39, "49": 46, "50": 46, "51": 52, "52": 52, "53": 64, "58": 72, "63": 126, "64": 130, "65": 130, "66": 131, "67": 131, "68": 132, "69": 132, "70": 133, "71": 133, "72": 135, "73": 135, "74": 137, "75": 137, "76": 139, "77": 139, "78": 141, "79": 141, "80": 143, "81": 143, "82": 145, "83": 145, "84": 147, "85": 147, "86": 149, "87": 149, "88": 151, "89": 151, "90": 153, "91": 153, "92": 155, "93": 155, "94": 157, "95": 157, "96": 161, "97": 161, "98": 165, "99": 165, "100": 167, "101": 167, "102": 169, "103": 169, "104": 173, "105": 173, "111": 12, "122": 72, "128": 72, "134": 126, "145": 134}}
+{"filename": "/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/dashboard/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 0, "32": 2, "33": 8, "34": 8, "35": 9, "36": 9, "41": 12, "42": 19, "43": 19, "44": 22, "45": 26, "46": 26, "47": 39, "48": 39, "49": 46, "50": 46, "51": 52, "52": 52, "53": 64, "58": 72, "63": 101, "64": 105, "65": 105, "66": 106, "67": 106, "68": 107, "69": 107, "70": 108, "71": 108, "72": 110, "73": 110, "74": 112, "75": 112, "76": 114, "77": 114, "78": 116, "79": 116, "80": 118, "81": 118, "82": 120, "83": 120, "84": 122, "85": 122, "86": 124, "87": 124, "88": 126, "89": 126, "90": 128, "91": 128, "92": 130, "93": 130, "94": 132, "95": 132, "96": 136, "97": 136, "98": 140, "99": 140, "100": 142, "101": 142, "102": 144, "103": 144, "104": 148, "105": 148, "111": 12, "122": 72, "128": 72, "134": 101, "145": 134}}
 __M_END_METADATA
 """

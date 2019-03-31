@@ -38,8 +38,12 @@ class LoginForm(forms.Form):
         return self.cleaned_data
 
 @view_function
-def process_request(request, next:str = None):
+def process_request(request):
     
+    next = request.GET.get('next')
+    print('>>>>>>>>>>>>')
+    print(next)
+
     if request.method == 'POST':
         form = LoginForm(request.POST)
         
@@ -50,12 +54,12 @@ def process_request(request, next:str = None):
 
             login(request, user)
 
-            print(next)
+            next = request.POST.get('next')
 
-            if next is not None:
+            if next != '':
                 redirect = next
             else:
-                redirect = '/'
+                redirect = '/dashboard/'
 
             return HttpResponseRedirect(redirect)
         else:
@@ -64,4 +68,7 @@ def process_request(request, next:str = None):
     else:
         form = LoginForm()
 
-    return request.dmp.render('login.html', { 'form': form })
+    return request.dmp.render('login.html', { 
+        'form': form, 
+        'next': request.GET.get('next') 
+        })

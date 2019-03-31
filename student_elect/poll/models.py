@@ -9,6 +9,7 @@ class Poll(models.Model):
     datecreated = models.DateTimeField(null = True, default=datetime.date.today())
     round = models.IntegerField(default=0, null=True)
     status = models.TextField(choices = (('Active', 'A'),('Inactive','I')), default = 'I')
+    votelimit = models.IntegerField(null=True)
     user = models.ForeignKey("account.User", on_delete=models.CASCADE)
 
 class Candidate(models.Model):
@@ -26,4 +27,4 @@ class Vote(models.Model):
 
 class Student(models.Model):
     studentID = models.TextField(null=True)
-    user = models.ForeignKey("account.User", on_delete=models.DO_NOTHING, null=True)
+    poll = models.ForeignKey("Poll", on_delete=models.CASCADE, null=True)

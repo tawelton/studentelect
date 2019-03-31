@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1553111456.535372
+_modified_time = 1553987980.9372458
 _enable_loop = True
 _template_filename = '/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/account/templates/login.html'
 _template_uri = 'login.html'
@@ -32,6 +32,7 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         def title():
             return render_title(context._locals(__M_locals))
+        next = context.get('next', UNDEFINED)
         def pageContent():
             return render_pageContent(context._locals(__M_locals))
         form = context.get('form', UNDEFINED)
@@ -68,12 +69,13 @@ def render_title(context,**pageargs):
 def render_pageContent(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        next = context.get('next', UNDEFINED)
         def pageContent():
             return render_pageContent(context)
-        form = context.get('form', UNDEFINED)
         self = context.get('self', UNDEFINED)
+        form = context.get('form', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\n\n<!-- Default form login -->\n    <div class="card col-xl-4 col-lg-5 col-md-7 col-sm-9 align-self-center">\n        <form method="POST" action="" class="text-center p-4">\n\n            <p class="h4 mb-4">Sign in</p>\n\n            <!-- Email -->\n            <input type="text" id=" ')
+        __M_writer('\n\n<!-- Default form login -->\n    <div class="card col-xl-4 col-lg-5 col-md-7 col-sm-9 align-self-center">\n        <form method="POST" action="/account/login/" class="text-center p-4">\n\n            <p class="h4 mb-4">Sign in</p>\n\n            <!-- Email -->\n            <input type="text" id=" ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(form['username'].auto_id ))
         __M_writer('" name="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( form['username'].name))
@@ -87,7 +89,9 @@ def render_pageContent(context,**pageargs):
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( form['remember_me'].id_for_label ))
         __M_writer('" value="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( form['remember_me'].value ))
-        __M_writer('">Remember me</label>\n                    </div>\n                </div>\n                <div>\n                    <!-- Forgot password -->\n                    <a href="/account/reset">Forgot password?</a>\n                </div>\n            </div>\n\n            <!-- Sign in button -->\n            <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>\n\n            <!-- Register -->\n            <p>Not a member?\n                <a href="/account/register">Register</a>\n            </p>\n\n\n        </form>\n    </div>\n\n<!-- Default form login -->\n\n\n')
+        __M_writer('">Remember me</label>\n                    </div>\n                </div>\n                <div>\n                    <!-- Forgot password -->\n                    <a href="/account/reset">Forgot password?</a>\n                </div>\n            </div>\n\n            <!-- Sign in button -->\n            <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>\n\n            <!-- Register -->\n            <p>Not a member?\n                <a href="/account/register">Register</a>\n            </p>\n\n            <input type="hidden" name="next" value="')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( next if next is not None else '' ))
+        __M_writer('">\n\n\n        </form>\n    </div>\n\n<!-- Default form login -->\n\n\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -95,6 +99,6 @@ def render_pageContent(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/account/templates/login.html", "uri": "login.html", "source_encoding": "utf-8", "line_map": {"29": 0, "40": 1, "45": 3, "50": 48, "56": 3, "62": 3, "68": 5, "76": 5, "77": 14, "78": 14, "79": 14, "80": 14, "81": 17, "82": 17, "83": 17, "84": 17, "85": 17, "86": 17, "87": 24, "88": 24, "89": 24, "90": 24, "96": 90}}
+{"filename": "/Users/tannerwelton/Documents/OneDrive - BYU Office 365/Projects/student_elect/student_elect/account/templates/login.html", "uri": "login.html", "source_encoding": "utf-8", "line_map": {"29": 0, "41": 1, "46": 3, "51": 50, "57": 3, "63": 3, "69": 5, "78": 5, "79": 14, "80": 14, "81": 14, "82": 14, "83": 17, "84": 17, "85": 17, "86": 17, "87": 17, "88": 17, "89": 24, "90": 24, "91": 24, "92": 24, "93": 41, "94": 41, "100": 94}}
 __M_END_METADATA
 """

@@ -3,4 +3,4 @@ from django.db import models
 
 # Create your models here.
 class User(AbstractUser):
-    birthdate = models.DateTimeField(null=True)
+    organization = models.TextField(null=True)

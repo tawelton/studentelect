@@ -1,0 +1,25 @@
+<%inherit file="base_ajax.htm" />
+
+<%block name="title"></%block>
+
+<%block name="content">
+
+  <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 col-sm-12 m-3">
+              <form method="POST" action="/poll/${ user.username }/current.login/${ poll.id }" id="studentForm">
+                <div class="card">
+                  <div class="card-body">
+                    <input type="text" class="form-control" required=true id="studentID_id" name="studentID" placeholder="Student ID">
+                    <button type="submit" class="btn btn-submit" id="loginButton">Sign In</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+        </div>
+  </div>
+
+    
+
+
+</%block>

@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django_mako_plus import dmp_path
 
 urlpatterns = [
     # the built-in Django administrator
@@ -22,6 +23,20 @@ urlpatterns = [
 
     # urls for any third-party apps go here
 
+    # include the poll app urls.py file
+    url('^poll/?', include('poll.urls')),
+
     # the DMP router - this should normally be the last URL listed
     url('', include('django_mako_plus.urls')),
+
+    dmp_path(
+        '^dashboard',
+        { 'dmp_app': 'dashboard',
+        'dmp_page': 'active',
+        'dmp_function': 'process_request',
+        'dmp_urlparams': '' },
+        name='/dashboard/',
+    ),
+
+    url(r'^(?P<username>[_a-zA-Z0-9\-]+)/?$', include('poll.urls'))
 ]

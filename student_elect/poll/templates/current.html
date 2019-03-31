@@ -1,0 +1,34 @@
+<%inherit file="app_base.htm" />
+
+<%block name="title">${ user.organization }</%block>
+
+<%block name="page_content">
+
+<div class="container-fluid fullscreen h-100">
+    <div class="row pt-5 h-100 justify-content-center">
+        <div class="col-lg-8 col-md-8 col-sm-10 text-center animated">
+            <h1 class="">${ user.organization }</h1>
+
+            <div id="interface">
+
+                <div class="container">
+                    %for poll in polls:
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 col-md-10 col-sm-12 m-3">
+                                <button class="btn btn-lg btn-block btn-primary m-0 pollSelect" data-id="${ poll.id }">
+                                    ${ poll.title }
+                                </button>
+                            </div>
+                        </div>
+                    %endfor
+                </div>
+
+            </div> 
+
+        </div>            
+    </div>
+</div>
+    
+
+
+</%block>
